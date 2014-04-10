@@ -9,9 +9,15 @@ ifile = open(filename1, "r")
 reader = csv.reader(ifile, delimiter=',')
 
 ofile = open(filename2, 'w')
-ofile.write("GalaxyID,Class1.1,Class1.2,Class1.3,Class2.1,Class2.2,Class3.1,Class3.2,Class4.1,Class4.2,Class5.1,Class5.2,Class5.3,Class5.4,Class6.1,Class6.2,Class7.1,Class7.2,Class7.3,Class8.1,Class8.2,Class8.3,Class8.4,Class8.5,Class8.6,Class8.7,Class9.1,Class9.2,Class9.3,Class10.1,Class10.2,Class10.3,Class11.1,Class11.2,Class11.3,Class11.4,Class11.5,Class11.6")
+ofile.write("GalaxyID,Class1.1,Class1.2,Class1.3,Class2.1,Class2.2,Class3.1,Class3.2,Class4.1,Class4.2,Class5.1,Class5.2,Class5.3,Class5.4,Class6.1,Class6.2,Class7.1,Class7.2,Class7.3,Class8.1,Class8.2,Class8.3,Class8.4,Class8.5,Class8.6,Class8.7,Class9.1,Class9.2,Class9.3,Class10.1,Class10.2,Class10.3,Class11.1,Class11.2,Class11.3,Class11.4,Class11.5,Class11.6\n")
+ignore_flag = 1
 
 for row in reader:
+    if ignore_flag == 1:
+        ignore_flag = 0
+        continue
+    
+    
     galaxy_id = row[0]    
     class1 = [float(x) for x in [row[1], row[2], row[3]]]
     class2 = [float(x) for x in [row[4], row[5]]]
@@ -81,7 +87,8 @@ for row in reader:
     if sum(class11) != 0:
         class11res[class11val] = 1
 
-    line = "%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % (galaxy_id, str(class1res).strip('[]'), str(class1res).strip('[]'), str(class2res).strip('[]'), str(class3res).strip('[]'), str(class4res).strip('[]'), str(class5res).strip('[]'), str(class6res).strip('[]'), str(class7res).strip('[]'), str(class8res).strip('[]'), str(class9res).strip('[]'), str(class10res).strip('[]'),str(class11res).strip('[]'))
+    
+    line = "%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n" % (int(galaxy_id), str(class1res).strip('[]'), str(class2res).strip('[]'), str(class3res).strip('[]'), str(class4res).strip('[]'), str(class5res).strip('[]'), str(class6res).strip('[]'), str(class7res).strip('[]'), str(class8res).strip('[]'), str(class9res).strip('[]'), str(class10res).strip('[]'),str(class11res).strip('[]'))
     ofile.write(line)
 
 ifile.close()
