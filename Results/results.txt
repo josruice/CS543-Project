@@ -1,0 +1,109 @@
+Results (lambda = 0.05, 300 clusters)
+
+   Original dataset 
+----------------------
+
+Correctly classified images: 23 out of 100 (23.00%)
+Elapsed time is 70.018368 seconds.
+
+Correctly classified images: 17 out of 100 (17.00%)
+Elapsed time is 71.202625 seconds.
+
+Correctly classified images: 24 out of 100 (24.00%)
+Elapsed time is 74.223398 seconds.
+
+Correctly classified images: 27 out of 100 (27.00%)
+Elapsed time is 70.052629 seconds.
+
+Correctly classified images: 9 out of 100 (9.00%)
+Elapsed time is 73.973736 seconds.
+
+Correctly classified images: 17 out of 100 (17.00%)
+Elapsed time is 68.795588 seconds.
+
+Correctly classified images: 22 out of 100 (22.00%)
+Elapsed time is 71.726865 seconds.
+
+
+Correctly classified images: 85 out of 300 (28.33%)
+Elapsed time is 208.131040 seconds.
+
+Correctly classified images: 18 out of 300 (6.00%)
+Elapsed time is 206.479095 seconds.
+
+Correctly classified images: 28 out of 300 (9.33%)
+Elapsed time is 206.727709 seconds.
+
+
+    Clean dataset 
+---------------------
+
+Correctly classified images: 66 out of 95 (69.47%)
+Elapsed time is 6.347964 seconds.
+
+Correctly classified images: 67 out of 95 (70.53%)
+Elapsed time is 6.271172 seconds.
+
+Correctly classified images: 64 out of 95 (67.37%)
+Elapsed time is 6.302534 seconds.
+
+Correctly classified images: 61 out of 95 (64.21%)
+Elapsed time is 6.345222 seconds.
+
+Correctly classified images: 67 out of 95 (70.53%)
+Elapsed time is 6.379910 seconds.
+
+
+Correctly classified images: 124 out of 292 (42.47%)
+Elapsed time is 11.440909 seconds.
+
+Correctly classified images: 116 out of 292 (39.73%)
+Elapsed time is 11.291510 seconds.
+
+Correctly classified images: 125 out of 292 (42.81%)
+Elapsed time is 11.753074 seconds.
+
+Correctly classified images: 119 out of 292 (40.75%)
+Elapsed time is 11.449530 seconds.
+
+Correctly classified images: 120 out of 292 (41.10%)
+Elapsed time is 11.307542 seconds.
+
+
+Correctly classified images: 142 out of 834 (17.03%)
+Elapsed time is 26.724643 seconds.
+
+Correctly classified images: 231 out of 834 (27.70%)
+Elapsed time is 26.173000 seconds.
+
+Correctly classified images: 183 out of 834 (21.94%)
+Elapsed time is 26.283872 seconds.
+
+Correctly classified images: 225 out of 834 (26.98%)
+Elapsed time is 25.945834 seconds.
+
+Correctly classified images: 156 out of 834 (18.71%)
+Elapsed time is 26.477966 seconds.
+
+
+
+Results (lambda = 0.000001, 600 clusters)
+
+    Clean dataset 
+---------------------
+
+Correctly classified images: 221 out of 292 (75.68%)
+Elapsed time is 12.527309 seconds.
+
+Correctly classified images: 221 out of 292 (75.68%)
+Elapsed time is 12.131181 seconds.
+
+
+Correctly classified images: 612 out of 834 (73.38%)
+Elapsed time is 50.906522 seconds.
+
+Correctly classified images: 613 out of 834 (73.50%)
+Elapsed time is 51.213612 seconds.
+
+Correctly classified images: 612 out of 834 (73.38%)
+Elapsed time is 53.033294 seconds.
