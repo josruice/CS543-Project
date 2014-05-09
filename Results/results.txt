@@ -107,3 +107,32 @@ Elapsed time is 51.213612 seconds.
 
 Correctly classified images: 612 out of 834 (73.38%)
 Elapsed time is 53.033294 seconds.
+
+
+
+Results (lambda = 0.000001, 600 clusters, single descriptor (DSIFT))
+
+    Clean dataset 
+---------------------
+
+Correctly classified images: 23 out of 47 (48.94%)
+Elapsed time is 150.165827 seconds.
+
+Correctly classified images: 20 out of 95 (21.05%)
+Elapsed time is 166.266051 seconds.
+
+Correctly classified images: 72 out of 193 (37.31%)
+Elapsed time is 221.037223 seconds.
+
+
+
+Results (lambda = 0.000001, 600 clusters, single descriptor (SIFT))
+
+    Clean dataset 
+---------------------
+
+Correctly classified images: 37 out of 47 (78.72%)
+Elapsed time is 6.612814 seconds.
+
+
+

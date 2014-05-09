@@ -1,13 +1,14 @@
 % TODO: Write proper documentation.
 
-function [cell_properties] = read_markup(file_path, num_file_names)
+function [cell_properties] = read_markup(file_path, file_names)
     % Function constants.
     property_prefix = 'Class';
     property_delim = '.';
 
     % Open the file with reading permissions and create a file descriptor.
     file = fopen(file_path);
-
+    num_file_names = length(file_names);
+    
     % Read the headers of the file.
     single_cell_headers = textscan(file, '%s\n', 1);
     cell_headers = strsplit(single_cell_headers{1}{1}, ',');
@@ -16,8 +17,13 @@ function [cell_properties] = read_markup(file_path, num_file_names)
     % Close the file.
     fclose(file);
 
-    % Read the feature vectors.
-    labels = csvread(file_path, 1, 1); % Avoid headers row and ids column.
+    % Read the file ids and feature vectors.
+    ids_and_labels = csvread(file_path, 1, 0); % Avoid headers.
+    ids = ids_and_labels(:,1);
+    labels = ids_and_labels(:,2:end);
+    
+    file_names_ids = cellfun(@(x) str2double(x(1:find(x=='.',1)-1)), file_names);
+    labels = labels(ismember(ids, file_names_ids), :);
     labels(find(labels == 0)) = -1;    % Substitute zeros by minus ones.
 
     % All the data will be stored in a cell column vector where each slot will 
@@ -33,6 +39,6 @@ function [cell_properties] = read_markup(file_path, num_file_names)
         answer = question_and_answer(2);
         
         % Store everything in the cell array.
-        cell_properties{i} = {question, answer, labels(1:num_file_names,i)};
+        cell_properties{i} = {question, answer, labels(:,i)};
     end
 end

@@ -1,6 +1,4 @@
-% TODO: Write proper documentation.
-
-function [features] = quantize_feature_vectors (descriptors, total_descriptors, num_clusters)
+function [features, clusters] = quantize_feature_vectors (descriptors, total_descriptors, clusters, num_clusters)
     % Get the size of the descriptors cell.
     [num_rows num_columns] = size(descriptors);
 
@@ -8,8 +6,10 @@ function [features] = quantize_feature_vectors (descriptors, total_descriptors, 
     % descriptors in the columns.
     [d_matrix, num_descriptors] = descriptors_cell_to_single_matrix(descriptors, total_descriptors);
 
-    % Build the clusters applying k-means clustering to the descriptors matrix.
-    [clusters, ~] = vl_kmeans(d_matrix, num_clusters);
+    if isempty(clusters)
+        % Build the clusters applying k-means clustering to the descriptors matrix.
+        [clusters, ~] = vl_kmeans(d_matrix, num_clusters);
+    end
 
     % Create a kd-tree with the clusters.
     kd_tree = vl_kdtreebuild(clusters);
@@ -31,8 +31,6 @@ function [features] = quantize_feature_vectors (descriptors, total_descriptors, 
             % feature vector.
             feat_vector = accumarray(indices(1:num_descriptors{i,j})', 1);
             features(i, j, 1:size(feat_vector,1)) = feat_vector;
-
-            % TODO: normalize feature values.
 
             % The indices vector can be chopped out in this way because the 
             % materials and images are in order inside the vector.
