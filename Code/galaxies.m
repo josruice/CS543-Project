@@ -17,10 +17,10 @@
 root_path = '../CleanDataset'; % Without last slash.
 
 training_names_file_path = '../Markup/training_file_names.txt';
-max_training_samples = 600;
+max_training_samples = 2000;
 
 test_names_file_path = '../Markup/test_file_names.txt';
-max_test_samples = 250;
+max_test_samples = 400;
 
 markup_file = '../Markup/binary_training_solutions.csv';
 
@@ -36,12 +36,13 @@ plot_descriptors = false;
 verbose = 0;
 
 % Classifiers.
-feature_method = 'PHOW';          % PHOW, SIFT or DSIFT.
-max_descriptors_per_image = 1000; % 0 means infinite. 1 only with SIFT or DSIFT.
-scale = 10;                       % Scale (only with 1 descriptor and SIFT).
+feature_method = 'SIFT';          % HOG, PHOW, SIFT or DSIFT.
+max_descriptors_per_image = 0; % 0 means infinite. 1 only with SIFT or DSIFT.
+scale = 14;                       % Scale (only with 1 descriptor and SIFT).
+cell_size = 4;                   % Only with HOG.
 
 % Number of clusters used in the K-means.
-num_clusters = 300; 
+num_clusters = 600; 
 
 % Use binary histograms.
 binary_histograms = 0;   % 0 or 1.
@@ -50,7 +51,7 @@ binary_histograms = 0;   % 0 or 1.
 solver = 'SDCA'; % SGD or SDCA.
 
 % Lambda value of the SVM.
-lambda = 0.000001;
+lambda = 1e-6;
 
 % Loss parameter of SVM.
 loss = 'Logistic';
@@ -79,15 +80,16 @@ file_names = file_names(1:min(length(file_names), max_training_samples), :);
 
 % Get the descriptors of each image of the training dataset.
 time_start_descriptors = tic;
-[file_names, descriptors, total_descriptors] = get_descriptors(root_path, ...
-    file_names, feature_method, max_descriptors_per_image, plot_descriptors);
+[file_names, descriptors, total_descriptors] = get_descriptors(root_path,    ...
+    file_names, feature_method, max_descriptors_per_image, plot_descriptors, ...
+    scale, cell_size);
 time_descriptors = toc(time_start_descriptors);
 
 % Update number of files since some might be missing.
 num_file_names = length(file_names);
 
 time_start_quantization = tic;
-if max_descriptors_per_image == 1
+if max_descriptors_per_image == 1 || strcmpi(feature_method, 'HOG')
     features_3d = single(cell2mat(cellfun(@(x) reshape(x, 1, 1, []), ...
                          descriptors, 'UniformOutput', false)));
     num_clusters = size(features_3d, 3);
@@ -144,12 +146,6 @@ for i = 1:num_properties,
     % the same as negative (don't have the property).
     estimated_labels = sign(scores); % Returns -1, 0 or 1, depending on sign.
     estimated_labels( find(estimated_labels == 0) ) = -1;
-
-    % Testing accuracy in the training set.
-    accuracy = sum(labels == sign(estimated_labels')) / length(labels);
-    mean_accuracy = mean_accuracy + accuracy;
-    min_accuracy = min(min_accuracy, accuracy);
-    max_accuracy = max(max_accuracy, accuracy);
 end
 time_svm = toc(time_start_svm);
 
@@ -226,13 +222,14 @@ correctly_classified = find(sum(real_labels == estimated_labels) == ...
 accuracy = length(correctly_classified)*100/num_file_names;
 time_global = toc(time_start_global);
 fprintf(1, ['Training, %s, %d files | '     ...
-            '%s, %d maxDesPerImg, %.2f s | '    ...
+            '%s, %d maxDesPerImg, %d SIFT scale, %d HOG cellsize, %.2f s | ' ...
             '%d clusters, %d binHist, %.2f s | '    ...
             '%s solver, %s loss, %.0e lambda, %.2f s | ' ...
             '%.2f%% accuracy, %.2f s | '...
             '%.2f s\n'], ...
             root_path(find(root_path=='/',1,'last')+1:end), num_file_names, ...
-            feature_method, max_descriptors_per_image, time_descriptors, ...
+            feature_method, max_descriptors_per_image, scale, cell_size,    ...
+                time_descriptors, ...
             num_clusters, binary_histograms, time_quantization, ...
             solver, loss, lambda, time_svm, ...
             accuracy, time_one_vs_all, ...
@@ -251,15 +248,16 @@ file_names = file_names(1:min(length(file_names), max_test_samples), :);
 
 % Get the descriptors of each image of the test dataset.
 time_start_descriptors = tic;
-[file_names, descriptors, total_descriptors] = get_descriptors(root_path, ...
-    file_names, feature_method, max_descriptors_per_image, plot_descriptors);
+[file_names, descriptors, total_descriptors] = get_descriptors(root_path,    ...
+    file_names, feature_method, max_descriptors_per_image, plot_descriptors, ...
+    scale, cell_size);
 time_descriptors = toc(time_start_descriptors);
 
 % Update number of files since some might be missing.
 num_file_names = length(file_names);
 
 time_start_quantization = tic;
-if max_descriptors_per_image == 1
+if max_descriptors_per_image == 1 || strcmpi(feature_method, 'HOG')
     features_3d = single(cell2mat(cellfun(@(x) reshape(x, 1, 1, []), ...
                          descriptors, 'UniformOutput', false)));
     num_clusters = size(features_3d, 3);
@@ -366,13 +364,14 @@ correctly_classified = find(sum(real_labels == estimated_labels) == ...
 accuracy = length(correctly_classified)*100/num_file_names;
 time_global = toc(time_start_global);
 fprintf(1, ['Testing, %s, %d files | '     ...
-            '%s, %d maxDesPerImg, %.2f s | '    ...
+            '%s, %d maxDesPerImg, %d SIFT scale, %d HOG cellsize, %.2f s | ' ...
             '%d clusters, %d binHist, %.2f s | '    ...
             '%s solver, %s loss, %.0e lambda, %.2f s | ' ...
             '%.2f%% accuracy, %.2f s | '...
             '%.2f s\n'], ...
             root_path(find(root_path=='/',1,'last')+1:end), num_file_names, ...
-            feature_method, max_descriptors_per_image, time_descriptors, ...
+            feature_method, max_descriptors_per_image, scale, cell_size,    ...
+                time_descriptors, ...
             num_clusters, binary_histograms, time_quantization, ...
             solver, loss, lambda, time_svm, ...
             accuracy, time_one_vs_all, ...
