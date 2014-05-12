@@ -22,6 +22,15 @@ Testing, CleanDataset, 391 files | SIFT, 1 maxDesPerImg, 14 SIFT scale, 4 HOG ce
 Training, CleanDataset, 2000 files | SIFT, 1 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 24.99 s | 128 clusters, 0 binHist, 0.04 s | SDCA solver, Logistic loss, 1e-03 lambda, 0.32 s | 9.30% accuracy, 0.02 s | 29.35 s
 Testing, CleanDataset, 391 files | SIFT, 1 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 4.99 s | 128 clusters, 0 binHist, 0.01 s | SDCA solver, Logistic loss, 1e-03 lambda, 0.32 s | 9.21% accuracy, 0.01 s | 8.72 s
 
+Training, CleanDataset, 1000 files | SIFT, 0 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 22.81 s | 300 clusters, 0 binHist, 4.43 s | SDCA solver, Logistic loss, 1e-06 lambda, 147.84 s | 64.90% accuracy, 0.24 s | 179.24 s
+Testing, CleanDataset, 95 files | SIFT, 0 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 2.14 s | 300 clusters, 0 binHist, 0.03 s | SDCA solver, Logistic loss, 1e-06 lambda, 147.84 s | 20.00% accuracy, 0.02 s | 5.92 s
+
+Training, CleanDataset, 1000 files | SIFT, 0 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 22.05 s | 300 clusters, 0 binHist, 3.82 s | SDCA solver, Logistic loss, 1e-06 lambda, 168.35 s | 62.70% accuracy, 0.01 s | 197.93 s
+Testing, CleanDataset, 193 files | SIFT, 0 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 4.34 s | 300 clusters, 0 binHist, 0.10 s | SDCA solver, Logistic loss, 1e-06 lambda, 168.35 s | 20.73% accuracy, 0.01 s | 8.50 s
+
+Training, CleanDataset, 1000 files | SIFT, 0 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 22.80 s | 300 clusters, 0 binHist, 4.95 s | SDCA solver, Logistic loss, 1e-06 lambda, 152.14 s | 64.30% accuracy, 0.02 s | 184.37 s
+Testing, CleanDataset, 292 files | SIFT, 0 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 6.59 s | 300 clusters, 0 binHist, 0.08 s | SDCA solver, Logistic loss, 1e-06 lambda, 152.14 s | 21.58% accuracy, 0.01 s | 10.64 s
+
 
 Executions varying the number of training and test data.
 
@@ -91,3 +100,60 @@ Training, CleanDataset, 5000 files | SIFT, 0 maxDesPerImg, 14 SIFT scale, 4 HOG 
 Testing, CleanDataset, 784 files | SIFT, 0 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 17.54 s | 800 clusters, 0 binHist, 0.42 s | SDCA solver, Logistic loss, 1e-05 lambda, 68.38 s | 30.99% accuracy, 0.01 s | 21.79 s
 Training, CleanDataset, 5000 files | SIFT, 0 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 111.11 s | 800 clusters, 0 binHist, 66.31 s | SDCA solver, Logistic loss, 1e-06 lambda, 636.91 s | 49.52% accuracy, 0.06 s | 818.51 s
 Testing, CleanDataset, 784 files | SIFT, 0 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 17.76 s | 800 clusters, 0 binHist, 0.41 s | SDCA solver, Logistic loss, 1e-06 lambda, 636.91 s | 30.10% accuracy, 0.01 s | 21.93 s
+
+
+Execution varying the scale at which the single SIFT feature is computed.
+
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 1 SIFT scale, 4 HOG cellsize, 72.52 s | 128 clusters, 0 binHist, 0.11 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.84 s | 21.38% accuracy, 0.06 s | 103.65 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 1 SIFT scale, 4 HOG cellsize, 11.84 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.84 s | 19.39% accuracy, 0.02 s | 15.57 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 2 SIFT scale, 4 HOG cellsize, 74.93 s | 128 clusters, 0 binHist, 0.09 s | SDCA solver, Logistic loss, 1e-05 lambda, 25.93 s | 9.46% accuracy, 0.02 s | 104.93 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 2 SIFT scale, 4 HOG cellsize, 11.57 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 25.93 s | 8.67% accuracy, 0.01 s | 15.32 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 3 SIFT scale, 4 HOG cellsize, 75.84 s | 128 clusters, 0 binHist, 0.12 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.99 s | 24.48% accuracy, 0.02 s | 107.30 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 3 SIFT scale, 4 HOG cellsize, 11.90 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.99 s | 21.43% accuracy, 0.01 s | 15.70 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 4 SIFT scale, 4 HOG cellsize, 68.20 s | 128 clusters, 0 binHist, 0.09 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.63 s | 30.96% accuracy, 0.02 s | 99.01 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 4 SIFT scale, 4 HOG cellsize, 10.74 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.63 s | 29.85% accuracy, 0.01 s | 14.44 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 5 SIFT scale, 4 HOG cellsize, 69.54 s | 128 clusters, 0 binHist, 0.09 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.51 s | 37.34% accuracy, 0.02 s | 100.30 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 5 SIFT scale, 4 HOG cellsize, 11.08 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.51 s | 35.71% accuracy, 0.01 s | 14.73 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 6 SIFT scale, 4 HOG cellsize, 69.80 s | 128 clusters, 0 binHist, 0.11 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.60 s | 11.02% accuracy, 0.02 s | 100.59 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 6 SIFT scale, 4 HOG cellsize, 11.22 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.60 s | 12.12% accuracy, 0.01 s | 15.10 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 7 SIFT scale, 4 HOG cellsize, 69.92 s | 128 clusters, 0 binHist, 0.10 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.59 s | 28.62% accuracy, 0.02 s | 100.65 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 7 SIFT scale, 4 HOG cellsize, 10.96 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.59 s | 28.57% accuracy, 0.01 s | 14.83 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 8 SIFT scale, 4 HOG cellsize, 64.42 s | 128 clusters, 0 binHist, 0.10 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.41 s | 19.82% accuracy, 0.02 s | 95.17 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 8 SIFT scale, 4 HOG cellsize, 10.58 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.41 s | 20.79% accuracy, 0.01 s | 14.43 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 9 SIFT scale, 4 HOG cellsize, 66.30 s | 128 clusters, 0 binHist, 0.10 s | SDCA solver, Logistic loss, 1e-05 lambda, 27.26 s | 2.58% accuracy, 0.02 s | 98.02 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 9 SIFT scale, 4 HOG cellsize, 10.62 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 27.26 s | 3.32% accuracy, 0.01 s | 14.44 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 10 SIFT scale, 4 HOG cellsize, 64.99 s | 128 clusters, 0 binHist, 0.10 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.04 s | 27.44% accuracy, 0.02 s | 95.18 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 10 SIFT scale, 4 HOG cellsize, 10.10 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.04 s | 26.79% accuracy, 0.01 s | 13.88 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 11 SIFT scale, 4 HOG cellsize, 64.74 s | 128 clusters, 0 binHist, 0.10 s | SDCA solver, Logistic loss, 1e-05 lambda, 25.55 s | 28.90% accuracy, 0.02 s | 94.41 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 11 SIFT scale, 4 HOG cellsize, 10.40 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 25.55 s | 28.57% accuracy, 0.01 s | 14.13 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 12 SIFT scale, 4 HOG cellsize, 65.78 s | 128 clusters, 0 binHist, 0.10 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.28 s | 19.54% accuracy, 0.02 s | 96.42 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 12 SIFT scale, 4 HOG cellsize, 10.51 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.28 s | 18.37% accuracy, 0.01 s | 14.61 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 13 SIFT scale, 4 HOG cellsize, 71.07 s | 128 clusters, 0 binHist, 0.10 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.25 s | 28.08% accuracy, 0.02 s | 101.73 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 13 SIFT scale, 4 HOG cellsize, 10.68 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 26.25 s | 26.02% accuracy, 0.01 s | 14.54 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 66.00 s | 128 clusters, 0 binHist, 0.13 s | SDCA solver, Logistic loss, 1e-05 lambda, 27.25 s | 21.14% accuracy, 0.02 s | 97.56 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 10.14 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 27.25 s | 21.17% accuracy, 0.01 s | 14.09 s
+Training, CleanDataset, 5000 files | SIFT, 1 maxDesPerImg, 15 SIFT scale, 4 HOG cellsize, 65.97 s | 128 clusters, 0 binHist, 0.12 s | SDCA solver, Logistic loss, 1e-05 lambda, 27.36 s | 3.78% accuracy, 0.02 s | 97.77 s
+Testing, CleanDataset, 784 files | SIFT, 1 maxDesPerImg, 15 SIFT scale, 4 HOG cellsize, 10.15 s | 128 clusters, 0 binHist, 0.02 s | SDCA solver, Logistic loss, 1e-05 lambda, 27.36 s | 3.70% accuracy, 0.01 s | 14.22 s
+
+
+Executions comparing the cell size of HOG.
+
+Training, CleanDataset, 1000 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 2 HOG cellsize, 8.83 s | 335296 clusters, 0 binHist, 9.35 s | SDCA solver, Logistic loss, 1e-05 lambda, 185.88 s | 74.80% accuracy, 14.21 s | 225.02 s
+Testing, CleanDataset, 489 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 2 HOG cellsize, 4.47 s | 335296 clusters, 0 binHist, 2.70 s | SDCA solver, Logistic loss, 1e-05 lambda, 185.88 s | 25.15% accuracy, 3.28 s | 15.41 s
+Training, CleanDataset, 1000 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 3 HOG cellsize, 6.17 s | 147591 clusters, 0 binHist, 2.73 s | SDCA solver, Logistic loss, 1e-05 lambda, 96.86 s | 74.80% accuracy, 2.48 s | 112.84 s
+Testing, CleanDataset, 489 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 3 HOG cellsize, 2.78 s | 147591 clusters, 0 binHist, 0.94 s | SDCA solver, Logistic loss, 1e-05 lambda, 96.86 s | 24.34% accuracy, 1.21 s | 8.95 s
+Training, CleanDataset, 1000 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 5.08 s | 83824 clusters, 0 binHist, 1.21 s | SDCA solver, Logistic loss, 1e-05 lambda, 68.60 s | 74.80% accuracy, 1.35 s | 80.32 s
+Testing, CleanDataset, 489 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 4 HOG cellsize, 2.47 s | 83824 clusters, 0 binHist, 0.53 s | SDCA solver, Logistic loss, 1e-05 lambda, 68.60 s | 25.77% accuracy, 0.62 s | 7.58 s
+Training, CleanDataset, 1000 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 5 HOG cellsize, 4.74 s | 54684 clusters, 0 binHist, 0.88 s | SDCA solver, Logistic loss, 1e-05 lambda, 53.30 s | 74.80% accuracy, 1.03 s | 64.00 s
+Testing, CleanDataset, 489 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 5 HOG cellsize, 2.56 s | 54684 clusters, 0 binHist, 0.38 s | SDCA solver, Logistic loss, 1e-05 lambda, 53.30 s | 24.74% accuracy, 0.39 s | 7.11 s
+Training, CleanDataset, 1000 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 6 HOG cellsize, 4.30 s | 37975 clusters, 0 binHist, 0.51 s | SDCA solver, Logistic loss, 1e-05 lambda, 45.70 s | 74.80% accuracy, 0.62 s | 55.10 s
+Testing, CleanDataset, 489 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 6 HOG cellsize, 2.43 s | 37975 clusters, 0 binHist, 0.23 s | SDCA solver, Logistic loss, 1e-05 lambda, 45.70 s | 24.95% accuracy, 0.26 s | 7.04 s
+Training, CleanDataset, 1000 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 7 HOG cellsize, 4.46 s | 27900 clusters, 0 binHist, 0.42 s | SDCA solver, Logistic loss, 1e-05 lambda, 41.24 s | 74.80% accuracy, 0.42 s | 50.58 s
+Testing, CleanDataset, 489 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 7 HOG cellsize, 2.20 s | 27900 clusters, 0 binHist, 0.14 s | SDCA solver, Logistic loss, 1e-05 lambda, 41.24 s | 25.15% accuracy, 0.21 s | 6.41 s
+Training, CleanDataset, 1000 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 8 HOG cellsize, 4.02 s | 20956 clusters, 0 binHist, 0.28 s | SDCA solver, Logistic loss, 1e-05 lambda, 40.09 s | 74.80% accuracy, 0.32 s | 48.59 s
+Testing, CleanDataset, 489 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 8 HOG cellsize, 2.15 s | 20956 clusters, 0 binHist, 0.10 s | SDCA solver, Logistic loss, 1e-05 lambda, 40.09 s | 25.97% accuracy, 0.16 s | 6.23 s
+Training, CleanDataset, 1000 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 9 HOG cellsize, 3.94 s | 16399 clusters, 0 binHist, 0.23 s | SDCA solver, Logistic loss, 1e-05 lambda, 35.54 s | 74.80% accuracy, 0.24 s | 43.80 s
+Testing, CleanDataset, 489 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 9 HOG cellsize, 1.89 s | 16399 clusters, 0 binHist, 0.08 s | SDCA solver, Logistic loss, 1e-05 lambda, 35.54 s | 25.56% accuracy, 0.12 s | 5.96 s
+Training, CleanDataset, 1000 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 10 HOG cellsize, 4.03 s | 13671 clusters, 0 binHist, 0.18 s | SDCA solver, Logistic loss, 1e-05 lambda, 35.98 s | 74.60% accuracy, 0.21 s | 44.25 s
+Testing, CleanDataset, 489 files | HOG, 1 maxDesPerImg, 14 SIFT scale, 10 HOG cellsize, 1.85 s | 13671 clusters, 0 binHist, 0.06 s | SDCA solver, Logistic loss, 1e-05 lambda, 35.98 s | 25.56% accuracy, 0.10 s | 5.61 s
+

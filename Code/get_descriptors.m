@@ -63,6 +63,10 @@ function [read_images, descriptors, total_descriptors] = get_descriptors(root_pa
                 [F D] = vl_dsift(image);
             end
         end 
+
+        if size(D,2) == 0
+            D = zeros(size(D,1), 1, class(D));
+        end
         
         % Sample the output descriptors if required.
         num_descriptors = size(D,2);
