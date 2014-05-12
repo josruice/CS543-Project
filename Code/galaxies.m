@@ -17,10 +17,10 @@
 root_path = '../CleanDataset'; % Without last slash.
 
 training_names_file_path = '../Markup/training_file_names.txt';
-max_training_samples = 2000;
+max_training_samples = 5000;
 
 test_names_file_path = '../Markup/test_file_names.txt';
-max_test_samples = 400;
+max_test_samples = 800;
 
 markup_file = '../Markup/binary_training_solutions.csv';
 
@@ -42,7 +42,7 @@ scale = 14;                       % Scale (only with 1 descriptor and SIFT).
 cell_size = 4;                   % Only with HOG.
 
 % Number of clusters used in the K-means.
-num_clusters = 600; 
+%num_clusters = 300; 
 
 % Use binary histograms.
 binary_histograms = 0;   % 0 or 1.
@@ -51,7 +51,7 @@ binary_histograms = 0;   % 0 or 1.
 solver = 'SDCA'; % SGD or SDCA.
 
 % Lambda value of the SVM.
-lambda = 1e-6;
+%lambda = 1e-3;
 
 % Loss parameter of SVM.
 loss = 'Logistic';
