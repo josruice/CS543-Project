@@ -7,8 +7,9 @@
 
 % ****************** TITLE ****************************************
 
-\title{A Sample {\ttlit Proceedings of the VLDB Endowment} Paper in LaTeX
-Format\titlenote{for use with vldb.cls}}
+\title{Classification of Galaxy Morphologies Using {\ttlit Support Vector Machines}}
+
+% \titlenote{for use with vldb.cls}
 
 % possible, but not really needed or used for PVLDB:
 %\subtitle{[Extended Abstract]
@@ -40,7 +41,7 @@ Format\titlenote{for use with vldb.cls}}
 % without further effort on your part as the last section in
 % the body of your article BEFORE References or any Appendices.
 
-\numberofauthors{8} %  in this sample file, there are a *total*
+\numberofauthors{3} %  in this sample file, there are a *total*
 % of EIGHT authors. SIX appear on the 'first-page' (for formatting
 % reasons) and the remaining two appear in the \additionalauthors section.
 
@@ -57,53 +58,27 @@ Format\titlenote{for use with vldb.cls}}
 %
 % 1st. author
 \alignauthor
-Ben Trovato\titlenote{Dr.~Trovato insisted his name be first.}\\
-       \affaddr{Institute for Clarity in Documentation}\\
-       \affaddr{1932 Wallamaloo Lane}\\
-       \affaddr{Wallamaloo, New Zealand}\\
-       \email{trovato@corporation.com}
+A. Guzman-Ballen\\
+       \affaddr{University of Illinois at \\ Urbana - Champaign}\\
+       \email{\large\texttt{aguzman4@illinois.edu}}
 % 2nd. author
 \alignauthor
-G.K.M. Tobin\titlenote{The secretary disavows
-any knowledge of this author's actions.}\\
-       \affaddr{Institute for Clarity in Documentation}\\
-       \affaddr{P.O. Box 1212}\\
-       \affaddr{Dublin, Ohio 43017-6221}\\
-       \email{webmaster@marysville-ohio.com}
+E. Montagner\\
+       \affaddr{University of Illinois at \\ Urbana - Champaign}\\
+       \email{\large\texttt{montgnr2@illinois.edu}}
 % 3rd. author
-\alignauthor Lars Th{\Large{\sf{\o}}}rv{$\ddot{\mbox{a}}$}ld\titlenote{This author is the
-one who did all the really hard work.}\\
-       \affaddr{The Th{\large{\sf{\o}}}rv{$\ddot{\mbox{a}}$}ld Group}\\
-       \affaddr{1 Th{\large{\sf{\o}}}rv{$\ddot{\mbox{a}}$}ld Circle}\\
-       \affaddr{Hekla, Iceland}\\
-       \email{larst@affiliation.org}
-\and  % use '\and' if you need 'another row' of author names
-% 4th. author
-\alignauthor Lawrence P. Leipuner\\
-       \affaddr{Brookhaven Laboratories}\\
-       \affaddr{Brookhaven National Lab}\\
-       \affaddr{P.O. Box 5000}\\
-       \email{lleipuner@researchlabs.org}
-% 5th. author
-\alignauthor Sean Fogarty\\
-       \affaddr{NASA Ames Research Center}\\
-       \affaddr{Moffett Field}\\
-       \affaddr{California 94035}\\
-       \email{fogartys@amesres.org}
-% 6th. author
-\alignauthor Charles Palmer\\
-       \affaddr{Palmer Research Laboratories}\\
-       \affaddr{8600 Datapoint Drive}\\
-       \affaddr{San Antonio, Texas 78229}\\
-       \email{cpalmer@prl.com}
+\alignauthor
+J. V. Ruiz Cepeda\\
+       \affaddr{University of Illinois at \\ Urbana - Champaign}\\
+       \email{\large\texttt{ruizcep2@illinois.edu}}
+% use '\and' if you need 'another row' of author names
 }
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
 % for aesthetic reasons that you place these 'additional authors'
 % in the \additional authors block, viz.
-\additionalauthors{Additional authors: John Smith (The Th{\o}rv\"{a}ld Group, {\texttt{jsmith@affiliation.org}}), Julius P.~Kumquat
-(The \raggedright{Kumquat} Consortium, {\small \texttt{jpkumquat@consortium.net}}), and Ahmet Sacan (Drexel University, {\small \texttt{ahmetdevel@gmail.com}})}
-\date{30 July 1999}
+\additionalauthors{}
+\date{\today}
 % Just remember to make sure that the TOTAL number of authors
 % is the number that will appear on the first page PLUS the
 % number that will appear in the \additionalauthors section.
@@ -112,15 +87,52 @@ one who did all the really hard work.}\\
 \maketitle
 
 \begin{abstract}
-The abstract for your paper for the PVLDB Journal submission.
-The template and the example document are based on the ACM SIG Proceedings  templates. This file is part of a package for preparing the submissions for review. These files are in the camera-ready format, but they do not contain the full copyright note.
-Note that after the notification of acceptance, there will be an updated style file for the camera-ready submission containing the copyright note.
+\emph{We present a method to classify galaxy morphologies using Support Vector Machines (\emph{SVM}). Using the dataset provided by \emph{GalaxyZoo}, which contains over 60,000 images of galaxies, we constructed codebook of clustered \emph{SIFT} descriptors, and used this database to train a corpus of \emph{SVM}. We find that the preprocessing of the data is very useful in increasing the speed of execution because the pictures of the galaxies contain significant amount of noise.
+We also found that using a single descriptor \emph{SIFT} or \emph{HOG} descriptors achieves similar results. The \emph{SVM} were able to classify the pictures of galaxies into their correct class with 30\% accuracy. We conclude that the use of \emph{SVM} and feature descriptors to identify galaxy morphologies is not enough in terms of accuracy, and further research into other methods for preprocessing and image descriptors will be done to solve this problem.} \\
+
+Keywords: galaxies, support vector machines, machine learning, computer vision.
+
+%The classification of galaxies based on shape and size is important in order to better understand the distribution of galaxies within the universe and to provide answers to questions regarding their origin. The dataset provided by \emph{Galaxy Zoo} offers a good variety of galaxies as long as their correspondent shape classification. This paper compares the results of galaxy shape classification using that dataset of two different approaches with \emph{SIFT} (single descriptor and vector quantization) and \emph{HOG} descriptors. The results show that none of this approaches get accurate enough results to provide a satisfactory solution to the problem. In future work, other techniques, like \emph{Convolutional Neural Networks}, will be explored in the domain of this problem.}
 \end{abstract}
 
 
-
-
 \section{Introduction}
+Questions about the origin of the universe have been part of humankind since the beginning of times. In this context, the classification of galaxies based on shape and size is important in order to better understand the distribution of galaxies within the universe and to provide answers to questions regarding their origin. The power of telescopes is increasing rapidly over time and, every day, they capture thousands of images of galaxies, so the amount of data available is growing exponentially. Images of galaxies have up until now been classified manually, so the need for automatic computational methods to classify them is of great importance. \\
+
+Our goal is to use the dataset provided by \emph{Galaxy Zoo} to design a procedure that performs the classification automatically and reproduces the results of the manual classification.
+
+\section{Classification approach}
+\subsection{Data}
+\subsection{Techniques}
+ As part of the preprocessing, we used \emph{Otsu’s method} to obtain a binary image, which we then used to extract only the relevant galaxy in the middle of the picture. We also downsampled the input images to a size of 208x208 pixels.
+\subsection{Results}
+\subsection{Conclusions}
+\section{Individual contribution}
+Our team has held weekly meetings to make sure our project is making progress. When it comes to division of labor, it was decided that it would be determined based on the strengths and interests of each of the members. 
+
+\begin{itemize}
+       \item Andres, with some digital signal processing background, tried looking into the potential behind 2D Fourier Transforms to see if similar galaxies had similar Fourier Transforms. Ettienne and Andres, through researching different papers on the subject matter, managed to find a way to extract the center galaxies from the image in the process. This would be very beneficial for the actual algorithm that’s going to be classifying the galaxies because it simplifies the input data. 
+       \item Jose worked on implementing and using SVMs and SIFT descriptors to classify the given galaxies. 
+       \item Ettienne is researching other potential methods for feature extraction and for galaxy classification (at the moment, the use of eigenfaces and Neural Networks seem promising). We are all collectively still reading through papers, using MATLAB, attempting to incrementally get this project working, and using GitHub has made this very easy to do.
+\end{itemize}
+
+
+
+Introduction: Define and motivate the problem, discuss background material or related work, and briefly summarize your approach.
+
+Details of the approach: Include any formulas, pseudocode, diagrams -- anything that is necessary to clearly explain your system and what you have done. If possible, illustrate the intermediate stages of your approach with results images.
+
+Results: Clearly describe your experimental protocols. If you are using training and test data, report the numbers of training and test images. Be sure to include example output figures. Quantitative evaluation is always a big plus (if applicable). If you are working with videos, put example output on YouTube or some other external repository and include links in your report.
+
+Discussion and conclusions: Summarize the main insights drawn from your analysis and experiments. You can get a good project grade with mostly negative results, as long as you show evidence of extensive exploration, thoughtfully analyze the causes of your negative results, and discuss potential solutions.
+
+Statement of individual contribution: Required if there is more than one group member.
+
+References: including URLs for any external code or data used.
+
+
+
+
 The \textit{proceedings} are the records of a conference.
 ACM, as well as PVLDB, seeks to give these conference by-products a uniform,
 high-quality appearance.  To do this, ACM / PVLDB has some rigid
